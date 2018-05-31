@@ -1,0 +1,116 @@
+
+$cinzaPadrao: #C1C1C1;
+$cinzaEscuro: #58595B;
+$azulPadrao: #0ad0ea;
+$azulHover: #1473E6;
+$header-img: './assets/img/bg-logo-menu.png';
+
+/* SOBRESCREVER CSS DO BOOTSTRAP - INÍCIO */
+.tooltip-inner{
+  background-color: $cinzaEscuro;
+}
+.bs-tooltip-right{
+  & .arrow{
+    &::before{
+      right: 0;
+      border-width: .4rem .4rem .4rem 0;
+      border-right-color: $cinzaEscuro;
+    }
+  }
+}
+
+
+/* SOBRESCREVER CSS DO BOOTSTRAP - FIM */
+
+.sidebar-expand{
+  width: 200px!important;
+  transition: width  250ms 0s ease-in-out;
+}
+.nav-link-expand{
+  width: 200px!important;
+  transition: width  250ms 0s ease-in-out;
+}
+
+
+.menu-bar{
+  background-color: $cinzaEscuro;
+  height: 50px;
+  & .logo-box{
+    background-image: url($header-img);
+    height: 50px;
+    width: 200px;
+    float: left;
+  }
+  & .btn-toggle-menu{
+    background-color: $azulPadrao;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    position: relative;
+    float: left;
+    left: -3%;
+    top: 3px;
+    cursor: pointer;
+    & i{
+      color: white;
+      position: absolute;
+      top: 31%;
+      left: 35%;
+    }
+  }
+  & .left-info{
+    color: white;
+    & .perfil-img{
+      width: 30px;
+      height: 30px;
+      border-radius: 50px;
+      margin-right: 10px;
+    }
+    & .perfil-nome{
+      margin-right: 10px;
+    }
+    & .perfil-funcao{
+      cursor: pointer;
+      & :hover{
+        color: $azulPadrao;
+      }
+    }
+  }
+  & .blk-logout{
+    height: 50px;
+    background-color: $cinzaPadrao;
+    float: right;
+  }
+}
+
+.sidebar{
+  width: 50px;
+  background-color: $cinzaEscuro;
+  height: 100vh;
+  float: left;
+  transition: width 0.2s linear 0.2s;
+  & .nav{
+    & .nav-item{
+      color: white;
+      border-bottom: 1px solid white;
+      cursor: pointer;
+      & .nav-link{
+        color: white;
+        &:hover{
+          color: $azulPadrao;
+        }
+      }
+      &.active-menu{
+        background-color: white;
+        border-left: solid 2px $azulPadrao;
+        color: $azulPadrao;
+        & a{
+          color: $azulPadrao;
+          &:hover{
+            color: $azulHover;
+          }
+        }
+      }
+    }
+  }
+}

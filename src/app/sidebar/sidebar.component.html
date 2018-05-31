@@ -1,0 +1,7 @@
+<nav [ngClass]="{'sidebar-expand': showMenu}" class="sidebar">
+  <ul class="nav flex-column">
+    <li class="nav-item" *ngFor="let menu of arr" placement="right" [routerLinkActive]="['active-menu']" [routerLinkActiveOptions]="{exact:true}" ngbTooltip="{{menu.nomeMenu}}">
+      <a class="nav-link" [ngClass]="{'nav-link-expand': showMenu}" [routerLink]="[menu.url]"> <i class="{{menu.iconeMenu}}"></i> <span *ngIf="showMenu"> {{menu.nomeMenu}} </span></a>
+    </li>
+  </ul>
+</nav>
