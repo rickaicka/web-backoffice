@@ -1,7 +1,7 @@
 <nav [ngClass]="{'sidebar-expand': showMenu}" class="sidebar">
   <ul class="nav flex-column">
     <li class="nav-item" *ngFor="let menu of arr" placement="right" [routerLinkActive]="['active-menu']" [routerLinkActiveOptions]="{exact:true}" ngbTooltip="{{menu.data.title}}">
-      <a class="nav-link" [ngClass]="{'nav-link-expand': showMenu}" (click)="setClickedRoute(menu)" [routerLink]="[menu.path]"> <i class="{{menu.data.icon}}"></i> <span *ngIf="showMenu"> {{menu.data.title}} </span></a>
+      <a class="nav-link" [ngClass]="{'nav-link-expand': showMenu}" (click)="setClickedRoute(menu)"[routerLink]="[menu.path]"> <i class="{{menu.data.icon}}"></i> <span *ngIf="showMenu"> {{menu.data.title}} </span></a>
     </li>
   </ul>
 </nav>
@@ -15,7 +15,9 @@
   </div>
   <div class="contentSubMenu">
     <ul>
-      <li *ngFor="let subMenu of arrChildren">{{subMenu.path}}</li>
+      <li *ngFor="let subMenu of arrChildren">
+        <a [routerLink]="[subMenu.data.link]">{{subMenu.path}}</a>
+      </li>
     </ul>
   </div>
 </div>

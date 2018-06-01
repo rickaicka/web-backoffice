@@ -13,6 +13,7 @@ import _ from 'underscore';
 export class BreadcrumbComponent implements OnInit {
 
   @Input() route: Route;
+  @Input() routeChild: Route
 
   arr: Routes = ROUTES;
   constructor(private location: Location, private router: Router) {}
@@ -24,7 +25,15 @@ export class BreadcrumbComponent implements OnInit {
         url = routeAct.url;
         routeAct.url = url.replace("/",'');
         rt = _.find(this.arr, {path: routeAct.url})
-        this.route = rt;
+        if(!rt){
+          var str: any;
+          str = url.replace(`${this.route.path}`,'');
+          routeAct.url = str.replace("//",'');
+          rt = _.find(this.route.children, {path: routeAct.url})
+          this.routeChild = rt;
+        }else{
+          this.route = rt;
+        }
     });
   }
 

@@ -12,7 +12,9 @@ import {ROUTES} from '../app.routes';
 export class SidebarComponent implements OnInit {
 
   @Input() showMenu: boolean;
-  route: Route;
+  @Input() routeChild: Route
+
+  @Input() route: Route;
   showChildren: boolean;
   routeChildren: Route;
 
@@ -21,7 +23,8 @@ export class SidebarComponent implements OnInit {
 
   parentRoute: {
     icon:null,
-    name:null
+    name:null,
+    parent: string
   }
 
 
@@ -34,6 +37,8 @@ export class SidebarComponent implements OnInit {
     this.route = route;
     if(this.route.children){
       this.showSubMenu(this.route);
+    }else{
+      this.showChildren = false;
     }
   }
 
@@ -41,7 +46,8 @@ export class SidebarComponent implements OnInit {
     this.showChildren = true;
     this.parentRoute = {
       icon: this.route.data.icon,
-      name: this.route.data.title
+      name: this.route.data.title,
+      parent: this.route.path
     };
     this.arrChildren = route.children;
   }

@@ -12,7 +12,8 @@ import { HeaderComponent } from './header/header.component';
 import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { RestricaoComponent } from './restricao/restricao.component';
-import { RestChildComponent } from './rest-child/rest-child.component';
+import { RestChildComponent } from './restricao/rest-child/rest-child.component';
+import { RestChild2Component } from './restricao/rest-child2/rest-child2.component';
 
 @NgModule({
   declarations: [
@@ -22,13 +23,14 @@ import { RestChildComponent } from './rest-child/rest-child.component';
     BreadcrumbComponent,
     SidebarComponent,
     RestricaoComponent,
-    RestChildComponent
+    RestChildComponent,
+    RestChild2Component
   ],
   imports: [
     BrowserModule,
     NgbModule.forRoot(),
     RouterModule.forRoot(ROUTES, {preloadingStrategy: PreloadAllModules}),
-  ],
+  ],  
   providers: [],
   bootstrap: [AppComponent]
 })
