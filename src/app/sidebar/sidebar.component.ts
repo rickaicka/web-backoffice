@@ -35,11 +35,7 @@ export class SidebarComponent implements OnInit {
 
   setClickedRoute(route: Route){
     this.route = route;
-    if(this.route.children){
-      this.showSubMenu(this.route);
-    }else{
-      this.showChildren = false;
-    }
+    this.showSubMenu(this.route);
   }
 
   showSubMenu(route: Route){

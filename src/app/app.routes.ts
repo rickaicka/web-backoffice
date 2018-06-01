@@ -1,10 +1,7 @@
 import { RouterModule, Routes } from '@angular/router';
 
 import {HomeComponent} from './home/home.component';
-import {ServicosComponent} from './servicos/servicos.component';
-import {CadastrosComponent} from './cadastros/cadastros.component';
-import {ConfiguracoesComponent} from './configuracoes/configuracoes.component';
-import {RemessasComponent} from './remessas/remessas.component';
+
 
 export const ROUTES: Routes = [
   {path: '', component: HomeComponent,
@@ -13,25 +10,25 @@ export const ROUTES: Routes = [
       icon: 'fas fa-home'
     }
   },
-  {path:'servicos', component: ServicosComponent,
+  {path:'servicos', loadChildren: './servicos/servicos.module#ServicosModule',
     data: {
       title: 'Serviços',
       icon: 'fas fa-glasses'
     }
   },
-  {path:'cadastros', component: CadastrosComponent,
+  {path:'cadastros', loadChildren: './cadastros/cadastros.module#CadastrosModule',
     data: {
       title: 'Cadastros',
       icon: 'fas fa-plus-circle'
     }
   },
-  {path:'configuracoes', component: ConfiguracoesComponent,
+  {path:'configuracoes', loadChildren: './configuracoes/configuracoes.module#ConfiguracoesModule',
     data: {
       title: 'Configurações',
       icon: 'fas fa-cogs'
     }
   },
-  {path:'remessas', component: RemessasComponent,
+  {path:'remessas', loadChildren: './configuracoes/configuracoes.module#ConfiguracoesModule',
     data: {
       title: 'Remessas',
       icon: 'fas fa-newspaper'
