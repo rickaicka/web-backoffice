@@ -1,0 +1,10 @@
+<div class="breadcrumb-bar">
+  <div class="breadcrumb-path float-left">
+    <span class="breadcrumb-parent-icon float-left pl-3"> <i *ngIf="route" class="{{route.data.icon}}"></i> /</span>
+    <ul class=" float-left pl-3 ml-0">
+      <li class="breadcrumb-item">
+        <a class="breadcrumb-child" [routerLink]="[route.path]" *ngIf="route"> <span class=" pr-3">{{route.data.title}}</span></a>/
+      </li>
+    </ul>
+  </div>
+</div>
