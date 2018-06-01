@@ -117,6 +117,47 @@ $header-img: './assets/img/bg-logo-menu.png';
   }
 }
 
+.subMenu-children{
+  background-color: white;
+  height: 100vh;
+  width: 250px;
+  float: left;
+  -webkit-box-shadow: 8px 0 35px -10px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 8px 0 35px -10px rgba(0, 0, 0, 0.75);
+  box-shadow: 8px 0 35px -10px rgba(0, 0, 0, 0.75);
+  & .topSubMenu{
+    padding: 0;
+    margin: 0;
+    height: 50px;
+    border-bottom: #ccc solid 1px;
+    & ul{
+      display: inline-block;
+      list-style: none;
+      padding: 10px 20px 0 20px;
+      width: 100%;
+      margin: 0;
+      & li{
+        float: left;
+      }
+      & .icon-top{
+        color: $azulPadrao;
+        float: right;
+        height: 15px;
+        & i {
+          font-size: 0.8em;
+          vertical-align: middle;
+        }
+      }
+      & .title-top{
+        color: $cinzaEscuro;
+        & span{
+          font-size: 1em;
+        }
+      }
+    }
+  }
+}
+
 /*SIDE BAR - FIM*/
 
 /* BREADCRUMB - INÍCIO */

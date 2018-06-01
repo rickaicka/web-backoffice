@@ -12,6 +12,7 @@ import { HeaderComponent } from './header/header.component';
 import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { RestricaoComponent } from './restricao/restricao.component';
+import { RestChildComponent } from './rest-child/rest-child.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { RestricaoComponent } from './restricao/restricao.component';
     HeaderComponent,
     BreadcrumbComponent,
     SidebarComponent,
-    RestricaoComponent
+    RestricaoComponent,
+    RestChildComponent
   ],
   imports: [
     BrowserModule,

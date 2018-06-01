@@ -5,4 +5,18 @@
     </li>
   </ul>
 </nav>
+
+<div class="subMenu-children" *ngIf="showChildren">
+  <div class="topSubMenu">
+    <ul>
+      <li class="title-top"><span>{{parentRoute.name}}</span></li>
+      <li class="icon-top"> <i class="{{parentRoute.icon}}"></i></li>
+    </ul>
+  </div>
+  <div class="contentSubMenu">
+    <ul>
+      <li *ngFor="let subMenu of arrChildren">{{subMenu.path}}</li>
+    </ul>
+  </div>
+</div>
 <app-breadcrumb [route]="route"></app-breadcrumb>

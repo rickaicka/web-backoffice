@@ -13,9 +13,16 @@ export class SidebarComponent implements OnInit {
 
   @Input() showMenu: boolean;
   route: Route;
+  showChildren: boolean;
+  routeChildren: Route;
 
   arr: Routes = ROUTES;
+  arrChildren: Routes;
 
+  parentRoute: {
+    icon:null,
+    name:null
+  }
 
 
   constructor() { }
@@ -25,5 +32,17 @@ export class SidebarComponent implements OnInit {
 
   setClickedRoute(route: Route){
     this.route = route;
+    if(this.route.children){
+      this.showSubMenu(this.route);
+    }
+  }
+
+  showSubMenu(route: Route){
+    this.showChildren = true;
+    this.parentRoute = {
+      icon: this.route.data.icon,
+      name: this.route.data.title
+    };
+    this.arrChildren = route.children;
   }
 }
