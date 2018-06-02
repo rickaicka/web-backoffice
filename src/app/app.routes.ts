@@ -28,20 +28,10 @@ export const ROUTES: Routes = [
       icon: 'fas fa-cogs'
     }
   },
-  {path:'remessas', loadChildren: './configuracoes/configuracoes.module#ConfiguracoesModule',
+  {path:'remessas', loadChildren: './remessas/remessas.module#RemessasModule',
     data: {
       title: 'Remessas',
       icon: 'fas fa-newspaper'
     }
   }
-  // {path: 'one', component: RestricaoComponent,
-  //   children: [
-  //     {path: 'two',component: RestChildComponent,data: {link:'one/two', icon:'fas fa-ban', title: 'Teste 1'}},
-  //     {path: 'three',component: RestChild2Component,data: {link:'one/three', icon:'fas fa-ban', title: 'Teste 2'}}
-  //   ],
-  //   data: {
-  //     title: 'Restrição',
-  //     icon: 'fas fa-ban'
-  //   }
-  // }
 ]

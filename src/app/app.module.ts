@@ -31,8 +31,6 @@ import { CadastroUsuarioComponent } from './configuracoes/controle-acesso/solici
 import { AlterarUsuarioComponent } from './configuracoes/controle-acesso/solicitacao/alterar-usuario/alterar-usuario.component';
 import { AprovarUsuarioComponent } from './configuracoes/controle-acesso/solicitacao/aprovar-usuario/aprovar-usuario.component';
 import { TransferirSolicitacaoComponent } from './configuracoes/controle-acesso/solicitacao/transferir-solicitacao/transferir-solicitacao.component';
-import { RemessasComponent } from './remessas/remessas.component';
-import { ConsultarHistoricoRemessaComponent } from './remessas/consultar-historico-remessa/consultar-historico-remessa.component';
 
 @NgModule({
   declarations: [
@@ -59,9 +57,7 @@ import { ConsultarHistoricoRemessaComponent } from './remessas/consultar-histori
     CadastroUsuarioComponent,
     AlterarUsuarioComponent,
     AprovarUsuarioComponent,
-    TransferirSolicitacaoComponent,
-    RemessasComponent,
-    ConsultarHistoricoRemessaComponent
+    TransferirSolicitacaoComponent
   ],
   imports: [
     BrowserModule,

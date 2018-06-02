@@ -7,6 +7,7 @@ import {ROUTES} from '../app.routes';
 
 import {SubMenuModel} from './submenu.model';
 import {ARRAY_CHILDREN_CAD} from '../cadastros/cadastros.module';
+import {ARRAY_CHILDREN_REM} from '../remessas/remessas.module';
 
 @Component({
   selector: 'app-sidebar',
@@ -42,6 +43,7 @@ export class SidebarComponent implements OnInit {
   }
 
   showSubMenu(route: Route){
+    this.arrChildren = [];
     this.showChildren = true;
     this.parentRoute = {
       icon: this.route.data.icon,
@@ -63,7 +65,7 @@ export class SidebarComponent implements OnInit {
         this.route.children = this.arrChildren
         break;
       case 'remessas':
-        this.arrChildren = ARRAY_CHILDREN_CAD;
+        this.arrChildren = ARRAY_CHILDREN_REM;
         this.route.children = this.arrChildren
         break;
       default :
