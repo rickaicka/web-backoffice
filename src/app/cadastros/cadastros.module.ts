@@ -1,6 +1,7 @@
 import {NgModule} from "@angular/core"
 import {RouterModule, Routes} from '@angular/router';
 import { CadastrosComponent } from './cadastros.component';
+import {CommonModule} from "@angular/common";
 
 /* IMPORT DE MODULOS INTERNOS - INICIO */
 
@@ -16,7 +17,7 @@ import { MotivosBaixaComponent } from './motivos-baixa/motivos-baixa.component';
 
 /* IMPORT DE MODULOS INTERNOS - FIM */
 
-const ROUTES: Routes = [
+export const ROUTES: Routes = [
   {path:'', component: CadastrosComponent,
     children: [
       {
@@ -59,7 +60,7 @@ const ROUTES: Routes = [
         path: 'naturezaOperacao',
         component: NaturezaOperacaoComponent,
         data: {
-          link:'cadastros/natureza-operacao',
+          link:'cadastros/naturezaOperacao',
           icon:'fas fa-plus-circle',
           title: 'Natureza da Operação'
         }
@@ -68,7 +69,7 @@ const ROUTES: Routes = [
         path: 'codigoRetorno',
         component: CodigoRetornoComponent,
         data: {
-          link:'cadastros/codigo-retorno',
+          link:'cadastros/codigoRetorno',
           icon:'fas fa-plus-circle',
           title: 'Código de Retorno'
         }
@@ -77,16 +78,16 @@ const ROUTES: Routes = [
         path: 'modelosCarta',
         component: ModelosCartaComponent,
         data: {
-          link:'cadastros/modelos-carta',
+          link:'cadastros/modelosCarta',
           icon:'fas fa-plus-circle',
           title: 'Modelos de Carta'
         }
       },
       {
-        path: 'codRetornoRemessa',
+        path: 'retornoRemessa',
         component: CodRetornoRemessaComponent,
         data: {
-          link:'cadastros/retorno-remessa',
+          link:'cadastros/retornoRemessa',
           icon:'fas fa-plus-circle',
           title: 'Código Retorno Remessa Informacional'
         }
@@ -95,7 +96,7 @@ const ROUTES: Routes = [
         path: 'motivosBaixa',
         component: MotivosBaixaComponent,
         data: {
-          link:'cadastros/motivos-baixa',
+          link:'cadastros/motivosBaixa',
           icon:'fas fa-plus-circle',
           title: 'Motivos de Baixa'
         }
@@ -103,6 +104,8 @@ const ROUTES: Routes = [
     ]
   }
 ]
+
+export const ARRAY_CHILDREN_CAD = ROUTES[0].children;
 
 @NgModule({
   declarations:[
@@ -119,9 +122,8 @@ const ROUTES: Routes = [
   ],
   imports: [
     RouterModule.forChild(ROUTES),
-  ],
-  exports:[
-    ROUTES
+    CommonModule
   ]
 })
-export class CadastrosModule{}
+export class CadastrosModule{
+}

@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RouterModule, PreloadAllModules } from '@angular/router';
 
@@ -69,6 +69,7 @@ import { ConsultarHistoricoRemessaComponent } from './remessas/consultar-histori
     RouterModule.forRoot(ROUTES, {preloadingStrategy: PreloadAllModules}),
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 })
 export class AppModule { }

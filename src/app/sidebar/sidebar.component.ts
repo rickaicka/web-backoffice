@@ -1,9 +1,12 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output } from '@angular/core';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { RouterModule, Routes, Route } from '@angular/router';
 
 import {MenuModel} from './menu.model';
 import {ROUTES} from '../app.routes';
+
+import {SubMenuModel} from './submenu.model';
+import {ARRAY_CHILDREN_CAD} from '../cadastros/cadastros.module';
 
 @Component({
   selector: 'app-sidebar',
@@ -19,7 +22,7 @@ export class SidebarComponent implements OnInit {
   routeChildren: Route;
 
   arr: Routes = ROUTES;
-  arrChildren: Routes;
+  arrChildren: any[] = [];
 
   parentRoute: {
     icon:null,
@@ -27,8 +30,8 @@ export class SidebarComponent implements OnInit {
     parent: string
   }
 
-
-  constructor() { }
+  constructor() {
+ }
 
   ngOnInit() {
   }
@@ -45,6 +48,28 @@ export class SidebarComponent implements OnInit {
       name: this.route.data.title,
       parent: this.route.path
     };
-    this.arrChildren = route.children;
+    var path = this.route.path;
+    switch (path){
+      case 'cadastros':
+        this.arrChildren = ARRAY_CHILDREN_CAD;
+        this.route.children = this.arrChildren
+        break;
+      case 'servicos':
+        this.arrChildren = ARRAY_CHILDREN_CAD;
+        this.route.children = this.arrChildren
+        break;
+      case 'configuracoes':
+        this.arrChildren = ARRAY_CHILDREN_CAD;
+        this.route.children = this.arrChildren
+        break;
+      case 'remessas':
+        this.arrChildren = ARRAY_CHILDREN_CAD;
+        this.route.children = this.arrChildren
+        break;
+      default :
+        this.arrChildren = ARRAY_CHILDREN_CAD;
+        this.route.children = this.arrChildren
+        break;
+    }
   }
 }
