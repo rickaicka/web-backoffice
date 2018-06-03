@@ -20,14 +20,8 @@ export class MotivosBaixaComponent implements OnInit {
   motivosBaixaForm: FormGroup;
   matcher = new MyErrorStateMatcher();
 
-  rows: any[] = [];
-
-  codMotivoBaixaControl = new FormControl('', [
-    Validators.required
-  ]);
-  descMotivoBaixaControl = new FormControl('', [
-    Validators.required
-  ]);
+  codMotivoBaixaControl = new FormControl('', [ Validators.required]);
+  descMotivoBaixaControl = new FormControl('', [Validators.required]);
 
   ngOnInit() {
     this.motivosBaixaForm = this.formBuilder.group({

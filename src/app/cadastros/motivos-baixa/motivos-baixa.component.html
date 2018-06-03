@@ -26,9 +26,8 @@
           </mat-error>
         </mat-form-field>
       </div>
-
       <div class="col-1 mt-0 ml-0 pl-0 pt-2">
-        <button mat-button class="btn btn-outline-success float-right" (click)="inserirMotivoBaixa(motivosBaixaForm.value)"> <i class="fas fa-plus-circle"></i> Incluir</button>
+        <button mat-button class="btn btn-outline-success float-right" [disabled]="!motivosBaixaForm.valid" (click)="inserirMotivoBaixa(motivosBaixaForm.value)"> <i class="fas fa-plus-circle"></i> Incluir</button>
       </div>
     </div>
   </form>
