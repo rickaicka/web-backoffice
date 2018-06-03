@@ -1,3 +1,7 @@
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import '~@swimlane/ngx-datatable/release/index.css';
+@import '~@swimlane/ngx-datatable/release/themes/material.css';
+@import '~@swimlane/ngx-datatable/release/assets/icons.css';
 
 $cinzaPadrao: #C1C1C1;
 $cinzaEscuro: #58595B;
@@ -16,6 +20,16 @@ $header-img: './assets/img/bg-logo-menu.png';
       border-width: .4rem .4rem .4rem 0;
       border-right-color: $cinzaEscuro;
     }
+  }
+}
+
+.page-header{
+  padding-bottom: 9px;
+  margin: 0px 0 20px 0;
+  border-bottom: 1px solid #eee;
+  width: 100%;
+  & h4{
+    color: $cinzaEscuro;
   }
 }
 
@@ -91,6 +105,8 @@ $header-img: './assets/img/bg-logo-menu.png';
   height: 100vh;
   float: left;
   transition: width 0.2s linear 0.2s;
+  position: relative;
+  z-index: 2;
   & .nav{
     & .nav-item{
       color: white;
@@ -125,6 +141,8 @@ $header-img: './assets/img/bg-logo-menu.png';
   -webkit-box-shadow: 8px 0 35px -10px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 8px 0 35px -10px rgba(0, 0, 0, 0.75);
   box-shadow: 8px 0 35px -10px rgba(0, 0, 0, 0.75);
+  position: relative;
+  z-index: 1;
   & .topSubMenu{
     padding: 0;
     margin: 0;
@@ -156,6 +174,24 @@ $header-img: './assets/img/bg-logo-menu.png';
       }
     }
   }
+  & .contentSubMenu{
+    & ul {
+      list-style: none;
+      & li{
+        & .contentSubMenu-link{
+          color: $cinzaEscuro;
+          &:hover{
+            color: $azulPadrao;
+            text-decoration: none;
+          }
+        }
+        & .contentSubMenu-link-active{
+          color: $azulPadrao;
+          font-weight: bold;
+        }
+      }
+    }
+  }
 }
 
 /*SIDE BAR - FIM*/
@@ -169,7 +205,8 @@ $header-img: './assets/img/bg-logo-menu.png';
   box-shadow: 0px 5px 10px -6px rgba(0,0,0,0.75);
   background-color: white;
   width: 100%;
-
+  position: absolute;
+  margin-left: 50px;
   & .breadcrumb-path{
     display: inline-block;
     & .breadcrumb-parent-icon{
@@ -187,3 +224,9 @@ $header-img: './assets/img/bg-logo-menu.png';
 }
 
 /* BREADCRUMB - FIM */
+
+/* COMMON CLASS - INICIO */
+.full-width{
+  width: 100%;
+}
+/* COMMON CLASS - FIM */

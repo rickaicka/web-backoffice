@@ -19,6 +19,7 @@ export class BreadcrumbComponent implements OnInit {
   constructor(private location: Location, private router: Router) {}
 
   ngOnInit() {
+    this.router.events;
     this.router.events.pipe(filter((event: any) => event instanceof NavigationStart)).subscribe((routeAct: ActivatedRoute) => {
         let rt: any;
         let url: any;

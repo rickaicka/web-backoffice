@@ -1,3 +1,48 @@
-<p>
-  motivos-baixa works!
-</p>
+  <div class="row">
+    <div class="col-12">
+      <div class="page-header">
+        <h4>Cadastrar Motivos de Baixa</h4>
+      </div>
+    </div>
+  </div>
+
+  <form novalidate [formGroup]="motivosBaixaForm">
+    <div class="row">
+      <div class="col-4">
+        <mat-form-field class="full-width">
+          <input matInput formControlName="codMotivoBaixa" placeholder="Código do Motivo da Baixa *"
+          autocomplete="off" [formControl]="codMotivoBaixaControl" [errorStateMatcher]="matcher">
+          <mat-error *ngIf="codMotivoBaixaControl.hasError('required')">
+            Código da Baixa é <strong>obrigatório</strong>
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="col-4">
+        <mat-form-field class="full-width">
+          <input matInput formControlName="descMotivoBaixa" placeholder="Descrição do Motivo da Baixa *"
+          autocomplete="off" [formControl]="descMotivoBaixaControl" [errorStateMatcher]="matcher">
+          <mat-error *ngIf="descMotivoBaixaControl.hasError('required')">
+            Motivo da Baixa é <strong>obrigatório</strong>
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="col-1 mt-0 ml-0 pl-0 pt-2">
+        <button mat-button class="btn btn-outline-success float-right" (click)="inserirMotivoBaixa(motivosBaixaForm.value)"> <i class="fas fa-plus-circle"></i> Incluir</button>
+      </div>
+    </div>
+  </form>
+  <div class="row" *ngIf="(motivosBaixa?.length > 0)">
+    <div class="col-12">
+      <ngx-datatable
+        class="material"
+        [rows]="motivosBaixa"
+        [columns]="[{prop: 'codMotivoBaixa',name:'Código do Motivo'},{prop: 'descMotivoBaixa',name:'Descrição do Motivo'}]"
+        [columnMode]="'force'"
+        [headerHeight]="50"
+        [footerHeight]="50"
+        [rowHeight]="'auto'"
+        [limit]="10">
+      </ngx-datatable>
+    </div>
+  </div>

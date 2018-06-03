@@ -2,10 +2,16 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RouterModule, PreloadAllModules } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {LocationStrategy, HashLocationStrategy} from '@angular/common';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 
+import { SweetAlert2Module } from '@toverux/ngx-sweetalert2';
+import {SharedModule} from './shared/shared.module';
 
 import {ROUTES} from './app.routes';
 import { HeaderComponent } from './header/header.component';
@@ -61,11 +67,17 @@ import { TransferirSolicitacaoComponent } from './configuracoes/controle-acesso/
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
+    HttpClientModule,
     NgbModule.forRoot(),
+    SweetAlert2Module.forRoot(),
+    SharedModule.forRoot(),
     RouterModule.forRoot(ROUTES, {preloadingStrategy: PreloadAllModules}),
   ],
   providers: [],
   bootstrap: [AppComponent],
-  schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
+  schemas:[
+    CUSTOM_ELEMENTS_SCHEMA
+  ]
 })
 export class AppModule { }

@@ -6,7 +6,7 @@
   </ul>
 </nav>
 
-<div class="subMenu-children" *ngIf="showChildren">
+<div class="subMenu-children" *ngIf="showChildren" [ngClass]="{'open': showChildren}">
   <div class="topSubMenu">
     <ul>
       <li class="title-top"><span>{{parentRoute.name}}</span></li>
@@ -14,9 +14,9 @@
     </ul>
   </div>
   <div class="contentSubMenu">
-    <ul>
+    <ul class="ml-3 pl-0">
       <li *ngFor="let subMenu of arrChildren">
-        <a [routerLink]="[subMenu.data.link]">{{subMenu.path}}</a>
+        <a class="contentSubMenu-link" [routerLinkActive]="['contentSubMenu-link-active']" [routerLink]="[subMenu.data.link]">{{subMenu.data.title}}</a>
       </li>
     </ul>
   </div>

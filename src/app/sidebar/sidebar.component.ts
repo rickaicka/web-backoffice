@@ -2,6 +2,8 @@ import { Component, OnInit, Input, Output } from '@angular/core';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { RouterModule, Routes, Route } from '@angular/router';
 
+import $ from 'jquery';
+
 import {MenuModel} from './menu.model';
 import {ROUTES} from '../app.routes';
 
@@ -45,6 +47,12 @@ export class SidebarComponent implements OnInit {
   showSubMenu(route: Route){
     this.arrChildren = [];
     this.showChildren = true;
+    var menuOpen = $('.breadcrumb-bar').hasClass('openMenu');
+    if(menuOpen){
+      $('.breadcrumb-bar').css({'margin-left':'450px', 'width':'76%'})
+    }else{
+      $('.breadcrumb-bar').css({'margin-left':'300px', 'width':'84%'})
+    }
     this.parentRoute = {
       icon: this.route.data.icon,
       name: this.route.data.title,

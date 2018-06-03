@@ -1,7 +1,9 @@
-import {NgModule} from "@angular/core"
+import {NgModule, CUSTOM_ELEMENTS_SCHEMA} from "@angular/core"
 import {RouterModule, Routes} from '@angular/router';
 import { CadastrosComponent } from './cadastros.component';
-import {CommonModule} from "@angular/common";
+
+import { SharedModule } from '../shared/shared.module';
+import {ErrorStateMatcher, ShowOnDirtyErrorStateMatcher} from '@angular/material/core';
 
 /* IMPORT DE MODULOS INTERNOS - INICIO */
 
@@ -122,7 +124,13 @@ export const ARRAY_CHILDREN_CAD = ROUTES[0].children;
   ],
   imports: [
     RouterModule.forChild(ROUTES),
-    CommonModule
+    SharedModule
+  ],
+  providers:[
+    {provide: ErrorStateMatcher, useClass: ShowOnDirtyErrorStateMatcher}
+  ],
+  schemas:[
+    CUSTOM_ELEMENTS_SCHEMA
   ]
 })
 export class CadastrosModule{
