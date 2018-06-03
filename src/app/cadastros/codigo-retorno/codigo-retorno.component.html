@@ -1,3 +1,51 @@
-<p>
-  codigo-retorno works!
-</p>
+<div class="row">
+  <div class="col-12">
+    <div class="page-header">
+      <h4>Cadastrar Códigos de Retorno</h4>
+    </div>
+  </div>
+</div>
+
+<form novalidate [formGroup]="codRetornoForm">
+  <div class="row">
+    <div class="col-4">
+      <mat-form-field class="full-width">
+        <input matInput formControlName="codRetorno" placeholder="Código de Retorno *"
+        autocomplete="off" [formControl]="codRetornoControl" [errorStateMatcher]="matcher">
+        <mat-error *ngIf="codRetornoControl.hasError('required')">
+          Código de Retorno é <strong>obrigatório</strong>
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div class="col-4">
+      <mat-form-field class="full-width">
+        <input matInput formControlName="descCodRetorno" placeholder="Descrição do Código de Retorno *"
+        autocomplete="off" [formControl]="descCodRetornoControl" [errorStateMatcher]="matcher">
+        <mat-error *ngIf="descCodRetornoControl.hasError('required')">
+          Descrição do Código de Retorno é <strong>obrigatório</strong>
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div class="col-1 mt-0 ml-0 pl-0 pt-2">
+      <button mat-button class="btn btn-outline-success float-right"
+      [disabled]="!codRetornoForm.valid"
+      (click)="inserirCodigoRetorno(motivosBaixaForm.value)">
+        <i class="fas fa-plus-circle"></i> Incluir
+      </button>
+    </div>
+  </div>
+</form>
+<div class="row" *ngIf="(codigosRetorno?.length > 0)">
+  <div class="col-12">
+    <ngx-datatable
+      class="material"
+      [rows]="codigosRetorno"
+      [columns]="[{prop: 'codRetorno',name:'Código de Retorno'},{prop: 'descCodRetorno',name:'Descrição do Código de Retorno'}]"
+      [columnMode]="'force'"
+      [headerHeight]="50"
+      [footerHeight]="50"
+      [rowHeight]="'auto'"
+      [limit]="10">
+    </ngx-datatable>
+  </div>
+</div>

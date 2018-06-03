@@ -6,13 +6,16 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import {MatTableModule} from '@angular/material/table'
 
+
+/* SERVIÇOS APP - INICIO  */
 import {MotivosBaixaService} from '../cadastros/motivos-baixa/motivos-baixa.service';
-import {PaginationComponent} from './pagination/pagination.component';
+import {CodigoRetornoService} from '../cadastros/codigo-retorno/codigo-retorno.service';
+
+/* SERVIÇOS APP - FIM  */
 
 
 @NgModule({
   declarations: [
-    PaginationComponent
   ],
   imports: [
     CommonModule,
@@ -26,7 +29,6 @@ import {PaginationComponent} from './pagination/pagination.component';
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    PaginationComponent,
     MatInputModule,
     MatFormFieldModule,
     MatTableModule,
@@ -38,7 +40,8 @@ export class SharedModule{
     return {
       ngModule: SharedModule,
       providers: [
-        MotivosBaixaService
+        MotivosBaixaService,
+        CodigoRetornoService
       ]
     }
   }

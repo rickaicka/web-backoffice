@@ -2,7 +2,6 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import {FormControl, FormGroup, FormBuilder, Validators, AbstractControl} from '@angular/forms';
 import {MotivosBaixaModel} from './motivos-baixa.model';
 import {MotivosBaixaService} from './motivos-baixa.service';
-import {PaginationModel} from '../../shared/pagination/pagination.model';
 import 'rxjs/add/operator/finally';
 import {MyErrorStateMatcher} from '../../shared/error-matcher-input/error-matcher-input.model'
 
