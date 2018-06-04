@@ -203,7 +203,7 @@ $header-img: './assets/img/bg-logo-menu.png';
   -moz-box-shadow: 0px 5px 10px -6px rgba(0,0,0,0.75);
   box-shadow: 0px 5px 10px -6px rgba(0,0,0,0.75);
   background-color: white;
-  width: 100%;
+  width: 97%;
   position: absolute;
   margin-top: 0;
   top: 50px;
@@ -213,6 +213,15 @@ $header-img: './assets/img/bg-logo-menu.png';
     display: inline-block;
     & span{
       color: $cinzaEscuro;
+    }
+    & a{
+      cursor: pointer;
+    }
+    &.active{
+      & span{
+        color: $azulPadrao;
+        font-weight: bold;
+      }
     }
   }
 }
