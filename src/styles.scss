@@ -10,6 +10,9 @@ $azulHover: #1473E6;
 $header-img: './assets/img/bg-logo-menu.png';
 
 /* SOBRESCREVER CSS DO BOOTSTRAP - INÍCIO */
+html, body{
+  overflow-x: hidden;
+}
 .tooltip-inner{
   background-color: $cinzaEscuro;
 }
