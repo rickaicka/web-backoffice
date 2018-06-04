@@ -23,7 +23,7 @@ export class HeaderComponent implements OnInit {
       $('.breadcrumb').removeClass('openMenu')
       var menuOpen = $('.subMenu-children').hasClass('open');
       if(menuOpen){
-        $('.breadcrumb').css({'margin-left':'300px', 'width':'84%'})
+        $('.breadcrumb').css({'margin-left':'350px', 'width':'84%'})
       }else{
         $('.breadcrumb').css({'margin-left':'50px', 'width':'76%'})
       }
@@ -33,7 +33,7 @@ export class HeaderComponent implements OnInit {
       $('.breadcrumb').addClass('openMenu')
       var menuOpen = $('.subMenu-children').hasClass('open');
       if(menuOpen){
-        $('.breadcrumb').css({'margin-left':'450px', 'width':'76%'})
+        $('.breadcrumb').css({'margin-left':'500px', 'width':'76%'})
       }
     }
   }

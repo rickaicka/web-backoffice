@@ -51,9 +51,9 @@ export class SidebarComponent implements OnInit {
     this.showChildren = true;
     var menuOpen = $('.breadcrumb').hasClass('openMenu');
     if(menuOpen){
-      $('.breadcrumb').css({'margin-left':'450px', 'width':'76%'})
+      $('.breadcrumb').css({'margin-left':'500px', 'width':'76%'})
     }else{
-      $('.breadcrumb').css({'margin-left':'300px', 'width':'84%'})
+      $('.breadcrumb').css({'margin-left':'350px', 'width':'84%'})
     }
     this.parentRoute = {
       icon: this.route.data.icon,
