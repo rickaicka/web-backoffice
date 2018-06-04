@@ -1,3 +1,51 @@
-<p>
-  natureza-operacao works!
-</p>
+<div class="row">
+  <div class="col-12">
+    <div class="page-header">
+      <h4>Cadastrar Natureza da Operação</h4>
+    </div>
+  </div>
+</div>
+
+<form novalidate [formGroup]="naturezaOperacaoForm">
+  <div class="row">
+    <div class="col-4">
+      <mat-form-field class="full-width">
+        <input matInput formControlName="codNatOp" placeholder="Código Natureza Operação *"
+        autocomplete="off" [formControl]="codNatOpControl" [errorStateMatcher]="matcher">
+        <mat-error *ngIf="codNatOpControl.hasError('required')">
+          Código da Natureza é <strong>obrigatório</strong>
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div class="col-4">
+      <mat-form-field class="full-width">
+        <input matInput formControlName="descNatOp" placeholder="Descrição do Código de Retorno *"
+        autocomplete="off" [formControl]="descNatOpControl" [errorStateMatcher]="matcher">
+        <mat-error *ngIf="descNatOpControl.hasError('required')">
+          Descrição do Código de Retorno é <strong>obrigatório</strong>
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div class="col-1 mt-0 ml-0 pl-0 pt-2">
+      <button mat-button class="btn btn-outline-success float-right"
+      [disabled]="!naturezaOperacaoForm.valid"
+      (click)="inserirNaturezaOperacao(motivosBaixaForm.value)">
+        <i class="fas fa-plus-circle"></i> Incluir
+      </button>
+    </div>
+  </div>
+</form>
+<div class="row" *ngIf="(naturezasOperacao?.length > 0)">
+  <div class="col-12">
+    <ngx-datatable
+      class="material"
+      [rows]="naturezasOperacao"
+      [columns]="[{prop: 'codNatOp',name:'Código da Natureza da Operação'},{prop: 'descNatOp',name:'Descrição da Natureza da Operação'}]"
+      [columnMode]="'force'"
+      [headerHeight]="50"
+      [footerHeight]="50"
+      [rowHeight]="'auto'"
+      [limit]="10">
+    </ngx-datatable>
+  </div>
+</div>

@@ -6,6 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {LocationStrategy, HashLocationStrategy} from '@angular/common';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {Ng5BreadcrumbModule} from 'ng5-breadcrumb';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -15,7 +16,6 @@ import {SharedModule} from './shared/shared.module';
 
 import {ROUTES} from './app.routes';
 import { HeaderComponent } from './header/header.component';
-import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { ConsultarComponent } from './servicos/restricao/consultar/consultar.component';
 import { IncluirComponent } from './servicos/restricao/incluir/incluir.component';
@@ -23,8 +23,6 @@ import { AlterarComponent } from './servicos/restricao/alterar/alterar.component
 import { BaixarComponent } from './servicos/restricao/baixar/baixar.component';
 import { ContestacaoComponent } from './servicos/contestacao/contestacao.component';
 import { AprovarRejeitarComponent } from './servicos/contestacao/aprovar-rejeitar/aprovar-rejeitar.component';
-import { ReincluirComponent } from './servicos/oficio-judicial/reincluir/reincluir.component';
-import { SuspenderComponent } from './servicos/oficio-judicial/suspender/suspender.component';
 
 import { ParametrosSistemaComponent } from './configuracoes/parametros-sistema/parametros-sistema.component';
 import { ControleAcessoComponent } from './configuracoes/controle-acesso/controle-acesso.component';
@@ -43,7 +41,6 @@ import { TransferirSolicitacaoComponent } from './configuracoes/controle-acesso/
     AppComponent,
     HomeComponent,
     HeaderComponent,
-    BreadcrumbComponent,
     SidebarComponent,
     ConsultarComponent,
     IncluirComponent,
@@ -51,8 +48,6 @@ import { TransferirSolicitacaoComponent } from './configuracoes/controle-acesso/
     BaixarComponent,
     ContestacaoComponent,
     AprovarRejeitarComponent,
-    ReincluirComponent,
-    SuspenderComponent,
     ParametrosSistemaComponent,
     ControleAcessoComponent,
     FuncionalidadeComponent,
@@ -72,6 +67,7 @@ import { TransferirSolicitacaoComponent } from './configuracoes/controle-acesso/
     NgbModule.forRoot(),
     SweetAlert2Module.forRoot(),
     SharedModule.forRoot(),
+    Ng5BreadcrumbModule.forRoot(),
     RouterModule.forRoot(ROUTES, {preloadingStrategy: PreloadAllModules}),
   ],
   providers: [],

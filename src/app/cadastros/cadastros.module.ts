@@ -19,53 +19,68 @@ import { MotivosBaixaComponent } from './motivos-baixa/motivos-baixa.component';
 
 /* IMPORT DE MODULOS INTERNOS - FIM */
 
+/* IMPORT DE SERVCES DO MODULO - INICIO */
+
+import {MotivosBaixaService} from './motivos-baixa/motivos-baixa.service';
+import {CodigoRetornoService} from './codigo-retorno/codigo-retorno.service';
+import {NaturezaOperacaoService} from './natureza-operacao/natureza-operacao.service';
+import {CodRetornoRemessaService} from './cod-retorno-remessa/cod-retorno-remessa.service';
+
+/* IMPORT DE SERVCES DO MODULO - FIM */
+
 export const ROUTES: Routes = [
   {path:'', component: CadastrosComponent,
     children: [
-      {
-        path: 'cliente',
-        component: ClienteComponent,
-        data: {
-          link:'cadastros/cliente',
-          icon:'fas fa-plus-circle',
-          title: 'Cliente'
-        }
-      },
-      {
-        path: 'conglomerado',
-        component: ConglomeradoComponent,
-        data: {
-          link:'cadastros/conglomerado',
-          icon:'fas fa-plus-circle',
-          title: 'Conglomerado'
-        }
-      },
-      {
-        path: 'produto',
-        component: ProdutoComponent,
-        data: {
-          link:'cadastros/conglomerado',
-          icon:'fas fa-plus-circle',
-          title: 'Produto'
-        }
-      },
-      {
-        path: 'contrato',
-        component: ContratoComponent,
-        data: {
-          link:'cadastros/contrato',
-          icon:'fas fa-plus-circle',
-          title: 'Contrato'
-        }
-      },
+      // {
+      //   path: 'cliente',
+      //   component: ClienteComponent,
+      //   data: {
+      //     link:'cadastros/cliente',
+      //     icon:'fas fa-plus-circle',
+      //     title: 'Cliente'
+      //   },
+      //   children:[]
+      // },
+      // {
+      //   path: 'conglomerado',
+      //   component: ConglomeradoComponent,
+      //   data: {
+      //     link:'cadastros/conglomerado',
+      //     icon:'fas fa-plus-circle',
+      //     title: 'Conglomerado'
+      //   },
+      //   children:[]
+      // },
+      // {
+      //   path: 'produto',
+      //   component: ProdutoComponent,
+      //   data: {
+      //     link:'cadastros/produto',
+      //     icon:'fas fa-plus-circle',
+      //     title: 'Produto'
+      //   },
+      //   children:[]
+      // },
+      // {
+      //   path: 'contrato',
+      //   component: ContratoComponent,
+      //   data: {
+      //     link:'cadastros/contrato',
+      //     icon:'fas fa-plus-circle',
+      //     title: 'Contrato'
+      //   },
+      //   children:[]
+      // },
       {
         path: 'naturezaOperacao',
         component: NaturezaOperacaoComponent,
         data: {
           link:'cadastros/naturezaOperacao',
           icon:'fas fa-plus-circle',
-          title: 'Natureza da Operação'
-        }
+          title: 'Natureza da Operação',
+          show: false
+        },
+        children:[]
       },
       {
         path: 'codigoRetorno',
@@ -73,26 +88,31 @@ export const ROUTES: Routes = [
         data: {
           link:'cadastros/codigoRetorno',
           icon:'fas fa-plus-circle',
-          title: 'Código de Retorno'
-        }
+          title: 'Código de Retorno',
+          show: false
+        },
+        children:[]
       },
-      {
-        path: 'modelosCarta',
-        component: ModelosCartaComponent,
-        data: {
-          link:'cadastros/modelosCarta',
-          icon:'fas fa-plus-circle',
-          title: 'Modelos de Carta'
-        }
-      },
+      // {
+      //   path: 'modelosCarta',
+      //   component: ModelosCartaComponent,
+      //   data: {
+      //     link:'cadastros/modelosCarta',
+      //     icon:'fas fa-plus-circle',
+      //     title: 'Modelos de Carta'
+      //   },
+      //   children:[]
+      // },
       {
         path: 'retornoRemessa',
         component: CodRetornoRemessaComponent,
         data: {
           link:'cadastros/retornoRemessa',
           icon:'fas fa-plus-circle',
-          title: 'Código Retorno Remessa Informacional'
-        }
+          title: 'Retorno Remessa Informacional',
+          show: false
+        },
+        children:[]
       },
       {
         path: 'motivosBaixa',
@@ -100,8 +120,10 @@ export const ROUTES: Routes = [
         data: {
           link:'cadastros/motivosBaixa',
           icon:'fas fa-plus-circle',
-          title: 'Motivos de Baixa'
-        }
+          title: 'Motivos de Baixa',
+          show: false
+        },
+        children:[]
       }
     ]
   }
@@ -127,7 +149,11 @@ export const ARRAY_CHILDREN_CAD = ROUTES[0].children;
     SharedModule
   ],
   providers:[
-    {provide: ErrorStateMatcher, useClass: ShowOnDirtyErrorStateMatcher}
+    {provide: ErrorStateMatcher, useClass: ShowOnDirtyErrorStateMatcher},
+    MotivosBaixaService,
+    CodigoRetornoService,
+    NaturezaOperacaoService,
+    CodRetornoRemessaService
   ],
   schemas:[
     CUSTOM_ELEMENTS_SCHEMA

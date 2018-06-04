@@ -1,3 +1,51 @@
-<p>
-  cod-retorno-remessa works!
-</p>
+<div class="row">
+  <div class="col-12">
+    <div class="page-header">
+      <h4>Cadastrar Retorno da Remessa Informacional</h4>
+    </div>
+  </div>
+</div>
+
+<form novalidate [formGroup]="codRetornoRemessaForm">
+  <div class="row">
+    <div class="col-4">
+      <mat-form-field class="full-width">
+        <input matInput formControlName="codigo" placeholder="Código *"
+        autocomplete="off" [formControl]="codigoControl" [errorStateMatcher]="matcher">
+        <mat-error *ngIf="codigoControl.hasError('required')">
+          Código é <strong>obrigatório</strong>
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div class="col-4">
+      <mat-form-field class="full-width">
+        <input matInput formControlName="descricao" placeholder="Descrição *"
+        autocomplete="off" [formControl]="descricaoControl" [errorStateMatcher]="matcher">
+        <mat-error *ngIf="descricaoControl.hasError('required')">
+          Descrição é <strong>obrigatória</strong>
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div class="col-1 mt-0 ml-0 pl-0 pt-2">
+      <button mat-button class="btn btn-outline-success float-right"
+      [disabled]="!codRetornoRemessaForm.valid"
+      (click)="inserirRetornoRemessa(codRetornoRemessaForm.value)">
+        <i class="fas fa-plus-circle"></i> Incluir
+      </button>
+    </div>
+  </div>
+</form>
+<div class="row" *ngIf="(codigosRemessa?.length > 0)">
+  <div class="col-12">
+    <ngx-datatable
+      class="material"
+      [rows]="codigosRemessa"
+      [columns]="[{prop: 'codigo',name:'Código'},{prop: 'descricao',name:'Descrição'}]"
+      [columnMode]="'force'"
+      [headerHeight]="50"
+      [footerHeight]="50"
+      [rowHeight]="'auto'"
+      [limit]="10">
+    </ngx-datatable>
+  </div>
+</div>

@@ -10,6 +10,7 @@ import {ROUTES} from '../app.routes';
 import {SubMenuModel} from './submenu.model';
 import {ARRAY_CHILDREN_CAD} from '../cadastros/cadastros.module';
 import {ARRAY_CHILDREN_REM} from '../remessas/remessas.module';
+import {ARRAY_CHILDREN_SER} from '../servicos/servicos.module';
 
 @Component({
   selector: 'app-sidebar',
@@ -23,6 +24,7 @@ export class SidebarComponent implements OnInit {
   @Input() route: Route;
   showChildren: boolean;
   routeChildren: Route;
+  subMenuChildren: boolean = false;
 
   arr: Routes = ROUTES;
   arrChildren: any[] = [];
@@ -47,11 +49,11 @@ export class SidebarComponent implements OnInit {
   showSubMenu(route: Route){
     this.arrChildren = [];
     this.showChildren = true;
-    var menuOpen = $('.breadcrumb-bar').hasClass('openMenu');
+    var menuOpen = $('.breadcrumb').hasClass('openMenu');
     if(menuOpen){
-      $('.breadcrumb-bar').css({'margin-left':'450px', 'width':'76%'})
+      $('.breadcrumb').css({'margin-left':'450px', 'width':'76%'})
     }else{
-      $('.breadcrumb-bar').css({'margin-left':'300px', 'width':'84%'})
+      $('.breadcrumb').css({'margin-left':'300px', 'width':'84%'})
     }
     this.parentRoute = {
       icon: this.route.data.icon,
@@ -65,7 +67,7 @@ export class SidebarComponent implements OnInit {
         this.route.children = this.arrChildren
         break;
       case 'servicos':
-        this.arrChildren = ARRAY_CHILDREN_CAD;
+        this.arrChildren = ARRAY_CHILDREN_SER;
         this.route.children = this.arrChildren
         break;
       case 'configuracoes':
@@ -80,6 +82,14 @@ export class SidebarComponent implements OnInit {
         this.arrChildren = ARRAY_CHILDREN_CAD;
         this.route.children = this.arrChildren
         break;
+    }
+  }
+
+  showSubMenuChildren(subMenu){
+    if(!subMenu.show){
+      subMenu.show = true;
+    }else{
+      subMenu.show = false
     }
   }
 }

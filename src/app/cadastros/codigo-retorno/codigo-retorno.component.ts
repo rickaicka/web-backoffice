@@ -32,8 +32,8 @@ export class CodigoRetornoComponent implements OnInit {
   getCodigosRetornoDesc(){
     this.codigoRetornoService.getCodigosRetornoDesc()
         .subscribe(
-          motivosBaixa => {
-            this.codigosRetorno = motivosBaixa
+          codigosRetorno => {
+            this.codigosRetorno = codigosRetorno
           },
           errors => {
             Swal(errors.data.message, "", "error")
@@ -44,7 +44,7 @@ export class CodigoRetornoComponent implements OnInit {
   inserirCodigoRetorno(model){
     this.codigoRetornoService.inserirCodigoRetorno(model)
         .subscribe(
-          motivosBaixa => {
+          codigosRetorno => {
             this.codigosRetorno.unshift(model);
             this.codigosRetorno = [...this.codigosRetorno]
             this.modelCodigoRetorno = new CodigoRetornoModel();

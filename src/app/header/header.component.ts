@@ -19,21 +19,21 @@ export class HeaderComponent implements OnInit {
   expandMenu(){
     if(this.show){
       this.show = false
-      $('.breadcrumb-bar').css({'margin-left':'50px', 'width':'100%'});
-      $('.breadcrumb-bar').removeClass('openMenu')
+      $('.breadcrumb').css({'margin-left':'50px', 'width':'100%'});
+      $('.breadcrumb').removeClass('openMenu')
       var menuOpen = $('.subMenu-children').hasClass('open');
       if(menuOpen){
-        $('.breadcrumb-bar').css({'margin-left':'300px', 'width':'84%'})
+        $('.breadcrumb').css({'margin-left':'300px', 'width':'84%'})
       }else{
-        $('.breadcrumb-bar').css({'margin-left':'50px', 'width':'76%'})
+        $('.breadcrumb').css({'margin-left':'50px', 'width':'76%'})
       }
     }else{
       this.show = true;
-      $('.breadcrumb-bar').css({'margin-left':'200px', 'width':'89%'})
-      $('.breadcrumb-bar').addClass('openMenu')
+      $('.breadcrumb').css({'margin-left':'200px', 'width':'89%'})
+      $('.breadcrumb').addClass('openMenu')
       var menuOpen = $('.subMenu-children').hasClass('open');
       if(menuOpen){
-        $('.breadcrumb-bar').css({'margin-left':'450px', 'width':'76%'})
+        $('.breadcrumb').css({'margin-left':'450px', 'width':'76%'})
       }
     }
   }

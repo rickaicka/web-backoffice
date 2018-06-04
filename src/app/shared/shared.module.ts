@@ -8,8 +8,6 @@ import {MatTableModule} from '@angular/material/table'
 
 
 /* SERVIÇOS APP - INICIO  */
-import {MotivosBaixaService} from '../cadastros/motivos-baixa/motivos-baixa.service';
-import {CodigoRetornoService} from '../cadastros/codigo-retorno/codigo-retorno.service';
 
 /* SERVIÇOS APP - FIM  */
 
@@ -40,8 +38,7 @@ export class SharedModule{
     return {
       ngModule: SharedModule,
       providers: [
-        MotivosBaixaService,
-        CodigoRetornoService
+
       ]
     }
   }

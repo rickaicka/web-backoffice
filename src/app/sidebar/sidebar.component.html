@@ -16,9 +16,14 @@
   <div class="contentSubMenu">
     <ul class="ml-3 pl-0">
       <li *ngFor="let subMenu of arrChildren">
-        <a class="contentSubMenu-link" [routerLinkActive]="['contentSubMenu-link-active']" [routerLink]="[subMenu.data.link]">{{subMenu.data.title}}</a>
+        <a class="contentSubMenu-link" *ngIf="subMenu.children.length === 0" [routerLinkActive]="['contentSubMenu-link-active']" [routerLink]="[subMenu.data.link]">{{subMenu.data.title}} </a>
+        <a class="contentSubMenu-link" *ngIf="subMenu.children.length > 0" (click)="showSubMenuChildren(subMenu)" [routerLinkActive]="['contentSubMenu-link-active']" [routerLink]="[subMenu.data.link]">{{subMenu.data.title}}  <i [ngClass]="(subMenu.show ? 'fas fa-chevron-up' : 'fas fa-chevron-down')"></i> </a>
+        <ul *ngIf="subMenu.show" class="pl-3">
+          <li *ngFor="let childSubMenu of subMenu.children">
+            <a class="contentSubMenu-link" [routerLinkActive]="['contentSubMenu-link-active']" [routerLink]="[childSubMenu.data.link]">{{childSubMenu.data.title}}</a>
+          </li>
+        </ul>
       </li>
     </ul>
   </div>
 </div>
-<app-breadcrumb [route]="route"></app-breadcrumb>
